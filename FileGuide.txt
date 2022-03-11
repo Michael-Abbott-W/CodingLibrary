@@ -1,0 +1,19 @@
+Author: Michael Abbott
+Project: ProjectTemplate
+Date last updated: Aug 27, 2021
+Description:  This is the file guide for my template project.
+              Use the "tree" command in terminal for the project folder and copy it here.
+              Below the tree, list each element (folders and files) of the tree in the order they appears in the tree.
+              Place an indented description beneath each of these elements.
+              
+*Place Tree Here*            
+              
+ProjectTemplate
+README.txt
+FileGuide.txt
+NotTracked
+  This folder is where I will keep all material that I don't want to track with github.
+  This may include large data files or sensitive materials.
+  IE this folder will always be empty except for some files with instructions on how to fill it
+AddNotTrackedMaterial.txt
+  Explains how to fill this folder with the necessary materials.

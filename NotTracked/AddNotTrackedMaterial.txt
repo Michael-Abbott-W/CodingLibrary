@@ -1,0 +1,5 @@
+  
+Author: Michael Abbott
+Project: ProjectTemplate
+Date last updated: Aug 27, 2021
+Description:  Contains instructions for locally adding all materials that were not tracked by git

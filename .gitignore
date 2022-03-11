@@ -1,0 +1,8 @@
+# exclude MacOS ds_store files
+.DS_Store*
+
+# exclude everything in Folder NotTracked
+NotTracked/*
+
+# exception for files intended to help someone fill the NotTracked folder
+!NotTracked/AddNotTrackedMaterial.txt
