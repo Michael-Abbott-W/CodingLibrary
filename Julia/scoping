@@ -1,0 +1,61 @@
+#make everything a function
+
+#one of the biggest issues in scoping is that programs don't like global variables.
+#The program has no idea when or where that variable might be changed, and it makes
+#it difficult to optimize. Additionally, scoping becomes strange when you are making
+#changes to global variables. Take the following code:
+
+x = 0
+
+for i in 1:100
+    x+=1
+end
+
+#here, the program wants to optimize things in terms of chunks. So when you start
+#the for loop, it wants to make that its own chunk. but it's complicated by the fact that
+#you are trying to change a global variable from within that chunk. ie it can't really
+#treat the loop as its own separate entity. In fact, julia will, by default, assume
+#you mean the x in the for loop is a new, local variable. That's how much it wants
+#to treat the loop as its own chunk.
+
+#So the above won't work as intended. You COULD make it work by instead writing:
+
+x = 0
+
+for i in 1:100
+    global x+=1
+end
+
+#This will work as intended, however the greater point here is that the best way
+#to write this is:
+
+function loop(x)
+
+    for i in 1:100
+        x += 1
+    end
+    return x
+end
+
+x = loop(0)
+
+#here, the code can optimally "chunk" and there is no scoping ambiguity within a function
+#the way there is in the global scope. Another way to write this is:
+
+function loop(x)
+
+    for i in 1:100
+        x += 1
+    end
+    return x
+end
+
+const x_initial = 0
+x = loop(x_initial)
+
+#This is a good way to establish parameters.
+
+#so overall a good practice is to start by writing your code to be the BIGGEST
+#PICTURE POSSIBLE. ie: at the end what we want is to assign a value to a variable x.
+#so we write x = [thing we want]. That's big picture. Then do everything else as
+#a function. i.e. replace [thing we want] with loop().

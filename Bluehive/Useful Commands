@@ -1,0 +1,30 @@
+Here are useful commands for bluehive:
+
+Logging in via ssh:
+	ssh mabbo10@bh25fen.circ.rochester.edu
+
+Logging out:
+	exit
+
+Transfer file from local machine to bluehive: (done from local machine terminal)
+	scp path/to/file mabbo10@bluehive.circ.rochester.edu:path/to/bluehive/desitnation/directory
+
+	note: default destination directory is /home/mabbo10
+
+Transfer file from bluehive to local machine (also done fromlocal machine terminal)
+	scp mabbo10@bluehive.circ.rochester.edu:path/to/file .
+
+	note: the "." at the end denotes you want to place the file into the current directory.
+
+Run an SBatch file
+	sbatch batchfile.sh
+	
+Open a folder in the gui
+	xdg-open folder
+	or
+	gio open folder
+
+
+scp /Users/michaelwalkerabbott/Professional/Research/ResearchWithRonni/Topics/ReturnsToMajorOverTime/NotTracked/Dictionaries/workTimeDefDict.csv mabbo10@bluehive.circ.rochester.edu:/scratch/mabbo10/ResearchWithRonni/Topics/ReturnsToMajorOverTime/NotTracked/Dictionaries
+
+scp mabbo10@bluehive.circ.rochester.edu:/scratch/mabbo10/ResearchWithRonni/Topics/ReturnsToMajorOverTime/NotTracked/Results.dta /Users/michaelwalkerabbott/Professional/Research/ResearchWithRonni/Topics/ReturnsToMajorOverTime/NotTracked

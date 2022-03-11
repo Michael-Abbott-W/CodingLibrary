@@ -1,0 +1,17 @@
+function thing(n_x, n_y)
+    V1 = zeros(Float64, n_x, n_y)
+    V2 = zeros(Float64, n_x, n_y)
+    #Threads.@threads
+    Threads.@threads for i in 1:n_x
+        for k in 1:n_y
+            V1[i,k] = i + k
+            V2[i,k] = i%48
+            V1[i,k] = V1[i,k]-V2[i,k]
+        end
+    end
+    return V1
+end
+
+@time begin
+    x = thing(10000,10000)
+end

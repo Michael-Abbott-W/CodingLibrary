@@ -1,0 +1,29 @@
+#!usr/bin/expect -f
+#this is an "expect script". I don't even know how to make comments in it.
+set timeout 
+
+set keyname [lindex $argv 0]
+
+spawn ./lpssh_sh.sh $keyname
+
+set stay_in_loop 1
+
+while {$stay_in_loop} {
+	set stay_in_loop 0
+	expect {
+		"You are logged*" {
+			expect "Enter*"
+			send --
+		}
+
+		"You are not logged*" {
+			interact ++ return
+			set stay_in_loop 1
+		}
+	}
+}
+
+
+
+expect eof
+
