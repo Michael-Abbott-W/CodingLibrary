@@ -1,0 +1,22 @@
+#This file is meant to try a simple GMM Estimation
+
+
+
+
+
+
+function u(c::Float64, l::Float64)
+    if σ == 1.0
+        if γ == 1.0
+            return ln(c) + ln(l)
+        else
+            return ln(c) + (l^(1.0-γ))/(1.0-γ)
+        end
+    else
+        if γ == 1.0
+            return (c^(1.0-σ))/(1.0-σ) + ln(l)
+        else
+            return ln(c) + (l^(1.0-γ))/(1.0-γ)
+        end
+    end
+end
