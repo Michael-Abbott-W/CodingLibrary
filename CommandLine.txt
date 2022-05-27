@@ -1,0 +1,9 @@
+
+
+#connect over ssh
+	ssh user@ip
+	ssh michaelabbott@66.24.200.172
+
+#set up ssh tunnel
+	ssh -L 
+	ssh -L 5900:localhost:5900 michaelabbott@66.24.204.70
